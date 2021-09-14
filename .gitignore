@@ -1,2 +1,2 @@
-app/api/__pycache__/*.pyc
-.cot-*
+/app/api/__pycache__/*.pyc
+./.cot-*
