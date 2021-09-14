@@ -1,3 +1,9 @@
+### installation
+- copy file called cot-env from fenv folder, paste and renamed to .cot-env to
+  root folder
+- copy file called cot-envdb from fenv folder, paste and renamed to .cot-envdb
+  to root folder
+ 
 ### build docker
 ```
  - docker-compose build
