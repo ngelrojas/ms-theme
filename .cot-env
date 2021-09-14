@@ -1,0 +1,11 @@
+SECRET_KEY=django-insecure-0hesn809#g&y5fr5iqh_4(60g@fu)$1!j=p!dk=y7-++!1_14)
+DEBUG=1
+ALLOWED_HOSTS=localhost 127.0.0.1 [::1]
+
+SQL_ENGINE=django.db.backends.postgresql
+SQL_DATABASE=cotdb
+SQL_USER=user_cot
+SQL_PASSWORD=user_cot2021
+SQL_HOST=db
+SQL_PORT=5432
+DATABASE=postgres
