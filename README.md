@@ -3,7 +3,9 @@
   root folder
 - copy file called cot-envdb from fenv folder, paste and renamed to .cot-envdb
   to root folder
- 
+- create folder and file called log folder and inside log folder a
+  cotizate_api_application.log file, all inside app folder. 
+
 ### build docker
 ```
  - docker-compose build
@@ -53,3 +55,18 @@ api python /usr/src/app/manage.py runserver 0.0.0.0:9001
 ```
 - docker-compose -f docker-compose.prod.yml logs -f
 ```
+
+### create module
+```
+- docker-compose exec api python manage.py startapp myapp
+```
+
+### TROUBLESHOOTING
+### 1
+- if not migrate correnctly, check if folder "migrations" is created in folder
+  "core"
+- then run makemigrations
+- then run migrate
+- then create super user
+- stop docker, and re-run docker
+
