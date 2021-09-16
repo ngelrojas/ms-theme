@@ -7,7 +7,7 @@ from rest_framework_jwt.serializers import JSONWebTokenSerializer
 from rest_framework.exceptions import APIException
 
 jwt_payload_handler = api_settings.JWT_PAYLOAD_HANDLER
-jwt_enconde_handler = api_settings.JWT_ENCODE_HANDLER
+jwt_encode_handler = api_settings.JWT_ENCODE_HANDLER
 
 
 class CustomLoginUser(JSONWebTokenSerializer):

@@ -26,7 +26,7 @@ class UpdateUserView(viewsets.ViewSet):
     def retrieve(self, request, pk=None):
         """retrieve current user"""
         try:
-            current_user = User.objects.get(user=request.user, is_activate=True)
+            current_user = User.objects.get(id=request.user.id, is_activate=True)
             serializer = self.serializer_class(current_user)
             return Response({"data": serializer.data}, status=status.HTTP_200_OK)
         except Exception as err:
@@ -37,8 +37,8 @@ class UpdateUserView(viewsets.ViewSet):
     def partial_update(self, request, pk=None):
         """update data partial current user"""
         try:
-            current_user = User.objects.get(user=request.user, is_activate=True)
-            serilaizer = self.serializer_class(
+            current_user = User.objects.get(id=request.user.id, is_activate=True)
+            serializer = self.serializer_class(
                 current_user, data=request.data, partial=True
             )
             if serializer.is_valid(raise_exception=True):
@@ -54,12 +54,12 @@ class UpdateUserView(viewsets.ViewSet):
     def destroy(self, request, *args, **kwargs):
         """delete current user loged"""
         try:
-            current_user = User.objects.get(user=request.user, is_activate=True)
+            current_user = User.objects.get(id=request.user.id, is_activate=True)
             current_user.deleted = True
             current_user.is_activate = False
             current_user.save()
             return Response(
-                {"data": True, "msg": "user delted"}, status=status.HTTP_201_NO_CONTENT
+                {"data": True, "msg": "user delted"}, status=status.HTTP_204_NO_CONTENT
             )
         except Exception as err:
             return Response(
