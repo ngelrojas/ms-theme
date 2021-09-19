@@ -4,6 +4,7 @@ from rest_framework.generics import get_object_or_404
 from core.user import User
 from core.encoder_tokens import encode_user_id
 from core.encoder_tokens import make_user_token
+from api.celery import producer
 
 # from api import settings
 
@@ -26,14 +27,16 @@ class UserSerializer(serializers.ModelSerializer):
 
     def create(self, validate_data):
         """create user"""
-        user_instance = User.objects.create_user(**validate_data)
+        # user_instance = User.objects.create_user(**validate_data)
         # uid = encode_user_id(user_instance.id)
         # token = make_user_token(user_instance)
         # context_page = ACTIVATION_ACCOUNT
         # here is whe send to prodcuer code
         # or wherever to send for microservices
         # send email with data current user
-        return user_instance
+        # return user_instance
+        xnum = producer.delay(3, 4)
+        return True
 
     def update(self, instance, validate_data):
         """update password current user"""

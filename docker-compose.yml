@@ -9,6 +9,8 @@ services:
     container_name: 'api_usereg'
     ports:
       - 9001:9001
+    # networks:
+    #   - net-api
     env_file:
       - ./.cot-env
     depends_on:
@@ -21,6 +23,10 @@ services:
       - postgres_data:/var/lib/postgresql/data/
     env_file:
       - ./.cot-envdb
+
+# networks:
+#   net-api:
+#     driver: bridge
 
 volumes:
   postgres_data:

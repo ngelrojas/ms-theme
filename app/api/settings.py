@@ -224,3 +224,7 @@ LOGGING = {
         },
     },
 }
+
+# config celery
+CELERY_BROKER_URL = "amqp://guest:guest@rabbitmq_lab:15672/"
+# broker_url = "amqp://guest:guest@rabbitmq:15672//"
